@@ -14,10 +14,5 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //To Test DataBase
-//        HabitModel model = new HabitModel(this);
-//        model.insertHabit(new Habit("Reading","Saturday",1));
-//        Log.d("strHabit",model.readSingleHabit(1).getName());
-        
     }
 }

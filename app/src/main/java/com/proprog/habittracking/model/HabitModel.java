@@ -37,19 +37,13 @@ public class HabitModel {
         database.insert(HabitEntry.TABLE_NAME, null, contentValues);
     }
 
-    public Habit readSingleHabit(int habitID) {
-        Habit habit = null;
+    public Cursor readSingleHabit(int habitID) {
         Cursor cursor = database.query(HabitEntry.TABLE_NAME
                 , new String[]{HabitEntry.COLUMN_NAME, HabitEntry.COLUMN_DAY_OF_WEAK, HabitEntry.COLUMN_HABIT_IS_DONE}
                 , HabitEntry._ID + "=?"
                 , new String[]{String.valueOf(habitID)}
                 , null, null, null);
-        if (cursor.moveToFirst()) {
-            String name = cursor.getString(0);
-            String day = cursor.getString(1);
-            int isDone = cursor.getInt(2);
-            habit = new Habit(name, day, isDone);
-        }
-        return habit;
+
+        return cursor;
     }
 }
